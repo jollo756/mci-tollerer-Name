@@ -1,0 +1,112 @@
+<html lang="en">
+    <head>
+        <title> Feedback dings </title>
+        <style>
+        body {
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            line-height:2;
+            background: #ffffff; /* idk irgendwas schönes finden*/
+            flex-direction: column;
+            min-height:100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color:rgb(70, 70, 219);
+        }
+
+        .login-box {
+            background-color: rgb(117, 117, 117);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            padding: 5px 20px;
+            width: 500px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: left;
+            color:rgb(0, 0, 0);
+            font-weight: bold;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border: none;
+            color: white;
+            background-color:rgba(70, 70, 219,0.8);
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color:rgba(70, 70, 219,1);
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+    </style>
+    </head>
+
+    <body>
+        <div class="login-box">
+            <form action="" onsubmit="login(); return false;">
+             <div class="login">
+                <h2>WebSSO </h2>         
+                    <label for="id"> LUH-ID</label>
+                    <input type="text" id="id" placeholder="LUH-ID" required>
+                    <label for="password"> WebSSO-Passwort</label>
+                    <input type="password" id="password" placeholder="Passwort" required>
+                    <div class="wrap">
+                        <button type="submit">
+                            Anmelden
+                        </button>
+                    </div>
+            </div>
+        </form>
+        </div>
+        <script>
+        function login() {
+            
+            var id = document.getElementById("id").value;
+            var password = document.getElementById("password").value;
+
+            if (id == "student" && password == "student") {
+                window.location.href = "student-page.html";
+            }
+            else if (id == "dozent" && password == "dozent") {
+                window.location.href = "dozent-page.html";
+            }
+            else if (id && password) { 
+                window.location.href = "landing-page-test.html";
+            }
+            
+        }
+    </script>
+       
+    </body>
+</html>
