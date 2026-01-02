@@ -203,6 +203,21 @@
     }
 
 /*------- mainly course overview-------*/
+    .back-btn {
+      margin-bottom: 16px;
+      font-size: 22px;
+      display: inline-block;
+      padding: 4px 15px;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      background: #fafafa;
+    }
+
+    .back-btn:hover {
+      background: #f0f6ff;
+      cursor: pointer;
+    }
+
     .title {
       text-align: center;
       margin-bottom: 16px;
