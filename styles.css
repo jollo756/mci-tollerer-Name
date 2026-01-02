@@ -1,141 +1,283 @@
-body {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    line-height:2;
-    background: #ffffff; /* idk irgendwas schönes finden*/
-    flex-direction: column;
-    min-height:100vh;
-    margin: 0;
-}
+/*------- mainly login-------*/
+    body {
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height:2;
+        background: #ffffff; /* idk irgendwas schönes finden*/
+        flex-direction: column;
+        min-height:100vh;
+        margin: 0;
+    }
 
-h2 {
-    color:rgb(70, 70, 219);
-}
+    h2 {
+        color:rgb(70, 70, 219);
+    }
 
-.login-box {
-    background-color: rgb(117, 117, 117);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    padding: 5px 20px;
-    width: 500px;
-    text-align: center;
-}
+    .login-box {
+        background-color: rgb(117, 117, 117);
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        padding: 5px 20px;
+        width: 500px;
+        text-align: center;
+    }
 
-label {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: left;
-    color:rgb(0, 0, 0);
-    font-weight: bold;
-}
+    label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+        color:rgb(0, 0, 0);
+        font-weight: bold;
+    }
 
-input {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
+    input {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
 
-button {
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border: none;
-    color: white;
-    background-color:rgba(70, 70, 219,0.8);
-    width: 100%;
-    font-size: 16px;
-}
+    button {
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: none;
+        color: white;
+        background-color:rgba(70, 70, 219,0.8);
+        width: 100%;
+        font-size: 16px;
+    }
 
-button:hover{
-    background-color:rgba(70, 70, 219,1);
-}
+    button:hover{
+        background-color:rgba(70, 70, 219,1);
+    }
 
-.wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.main-container_d {
-width: 80%;
-max-width: 900px;
-background: #ffffff;
-border-radius: 12px;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-padding: 32px;
-box-sizing: border-box;
-}
-.courses_d {
-display: flex;
-flex-direction: column;
-gap: 12px;
-margin-bottom: 32px;
-}
-.course_d {
-padding: 16px;
-border: 1px solid #ddd;
-border-radius: 8px;
-cursor: pointer;
-transition: background 0.2s, transform 0.1s;
-}
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 
-.course_d:hover {
-background: #f0f6ff;
-transform: translateY(-2px);
-}
+/*------- mainly dozent dashboard-------*/
 
 
-.course_d a {
-text-decoration: none;
-color: #000;
-display: block;
-width: 100%;
-height: 100%;
-}
+    .main-container {
+      width: 80%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 32px;
+      box-sizing: border-box;
+    }
 
-.bottom-actions_d {
-display: flex;
-gap: 16px;
-border-top: 1px solid #eee;
-padding-top: 24px;
-}
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
 
+    .add-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #4a6cf7;
+      color: white;
+      font-size: 22px;
 
-.action-box_d {
-flex: 1;
-padding: 24px;
-text-align: center;
-border: 1px solid #ddd;
-border-radius: 10px;
-cursor: pointer;
-transition: background 0.2s, transform 0.1s;
-}
+    }
 
+    .add-btn:hover {
+      background: #3959d6;
+    }
 
-.action-box_d:hover {
-background: #f9f9f9;
-transform: translateY(-2px);
-}
+    .courses {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
 
+    .course {
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
 
-.action-box_d a {
-text-decoration: none;
-color: #000;
-font-weight: bold;
-display: block;
-width: 100%;
-height: 100%;
-}
-.right-button_d{
-    display: flex;
-    justify-content: right;
-    align-items: center;
+    .course:hover {
+      background: #f0f6ff;
+      transform: translateY(-2px);
+      cursor: pointer;
+    }
 
-}
+    .course a {
+      text-decoration: none;
+      color: #000;
+      display: block;
+    }
+    
+    .bottom-actions {
+      display: flex;
+      gap: 16px;
+      border-top: 1px solid #eee;
+      padding-top: 24px;
+    }
+
+    .action-box {
+      flex: 1;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .action-box:hover {
+      background: #f0f6ff;
+      transform: translateY(-2px);
+      cursor: pointer;
+    }
+
+    .action-box a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Popup */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal-content input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .modal-actions button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .save-btn {
+      background: #4a6cf7;
+      color: white;
+    }
+
+    .cancel-btn {
+      background: #ddd;
+    }
+
+/*------- mainly course overview-------*/
+    .title {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .create-session {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .create-session a {
+      background: #4a6cf7;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .create-session a:hover {
+      background: #3959d6;
+    }
+
+    .content {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Linke Seite: */
+    .questions {
+      width: 35%;
+      border-right: 1px solid #ddd;
+      padding-right: 24px;
+    }
+
+    .questions h3 {
+      margin-bottom: 12px;
+    }
+
+    .question {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: #fafafa;
+    }
+
+    .votes {
+      font-weight: bold;
+    }
+
+    /* Rechte Seite */
+    .stats {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stat-box {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    .stat-box h4 {
+      margin: 0 0 8px 0;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+    }
+
