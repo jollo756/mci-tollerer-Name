@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Session erstellen</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .course:hover {
+      background: #ffffff;
+      transform: none;
+      cursor: default;
+    }
+    button {
+      padding: 0px;
+    }
+    </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1>Session erstellen</h1>
+      <!--<button class="add-btn" onclick="openModal()">+</button> -->
+    </div>
+
+    <div class="courses" id="courseList">
+      <div class="course" id="speed">
+        <a>Geschwindigkeit:</a>
+        <div class="feedback-nums">
+            <a> 1</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 2</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 3</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 4</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 5</a>
+        </div>
+        <button class="del" onclick="del('speed')">
+            <a>&#128465</a>
+        </button>
+      </div>
+      <div class="course" id="schwierigkeit">
+        <a>Schwierigkeit:</a>
+        <div class="feedback-nums">
+            <a> 1</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 2</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 3</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 4</a>
+        </div>
+        <div class="feedback-nums">
+            <a> 5</a>
+        </div>
+        <button class="del" onclick="del('schwierigkeit')">
+            <a>&#128465</a>
+        </button>
+      </div>
+      <button class="add-btn" onclick="openModal()">+</button>
+    </div>
+
+    <!-- Bottom Actions -->
+    <div class="bottom-actions">
+      <div class="action-box" onclick="location.href='start_session.html'">
+        <a>Session starten</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="modal" id="courseModal">
+    <div class="modal-content">
+      <h3>Neues Bewertungskriterium erstellen</h3>
+      <input type="text" id="category" placeholder="Kriterium"/>
+      <select id="type">
+        <option value="1-5">Bewertung 1-5</option>
+        <option value="Freitext">Freitext</option>
+      </select>
+
+      <div class="modal-actions">
+        <button class="cancel-btn" onclick="closeModal()">Abbrechen</button>
+        <button class="save-btn" onclick="addCategory()">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    const courses = [
+      { name: "Geschwindigkeit:", type: "1-5" },
+      { name: "Schwierigkeit:", type: "1-5" }
+    ];
+
+    function renderCourses() {
+      const list = document.getElementById("courseList");
+      list.innerHTML = "";
+
+      courses.forEach((course, index) => {
+            const div = document.createElement("div");
+            div.className = "course";                  // href="course_feedback.html?course=${index}"> falls wir nicht alle gleich haben wollen glaube aber passt so
+            div.setAttribute("id", course.name);
+            if (course.type === "Freitext") {
+                div.innerHTML = `
+                <a>${course.name}:</a>
+                <button class="del" onclick="del('${course.name}')">
+                    <a>&#128465</a>
+                </button>
+                Freitext`;
+                list.appendChild(div);
+                return;
+            }
+            div.innerHTML = `<a>${course.name}:</a>
+            <div class="feedback-nums">
+                <a> 1</a>
+            </div>
+            <div class="feedback-nums">
+                <a> 2</a>
+            </div>
+            <div class="feedback-nums">
+                <a> 3</a>
+            </div>
+            <div class="feedback-nums">
+                <a> 4</a>
+            </div>
+            <div class="feedback-nums">
+                <a> 5</a>
+            </div>
+            <button class="del" onclick="del('${course.name}')">
+                <a>&#128465</a>
+            </button>`;
+            list.appendChild(div);
+        });
+        const div = document.createElement("button");
+        div.className = "add-btn";
+        div.setAttribute("onclick", "openModal()");
+        div.innerHTML = `<a>+</a>`;
+        list.appendChild(div);
+    }
+
+    function del(elem) {
+        document.getElementById(elem).remove();
+        courses.splice(courses.findIndex(e =>{e.name === elem}), 1);
+        
+    }
+    function openModal() {
+      document.getElementById("courseModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("courseModal").style.display = "none";
+    }
+
+    function addCategory() {
+      const name = document.getElementById("category").value.trim();
+      const type= document.getElementById("type").value;
+
+      if (!name /*|| !start || !end*/) return; // falls wir irgendwann das brauchen sortieren oder so kp mir egal will nur ein langen komentar haben, damit wir das wieder finden
+
+      courses.push({ name, type });
+
+      document.getElementById("category").value = "";
+
+      closeModal();
+      renderCourses();
+    }
+  </script>
+</body>
+</html>
