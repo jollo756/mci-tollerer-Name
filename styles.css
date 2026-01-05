@@ -270,6 +270,9 @@
 
     .votes {
       font-weight: bold;
+      padding: 0px;
+      margin-left: 30px;
+      margin-right: 0px;
     }
 
     /* Rechte Seite */
