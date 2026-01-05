@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Bewertung abgeben</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<div class="card">
+    <p class="label">Geschwindigkeit:</p>
+    <div class="button-group" data-name="speed">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">4</button>
+        <button type="button">5</button>
+    </div>
+</div>
+
+<div class="card">
+    <p class="label">Schwierigkeit:</p>
+    <div class="button-group" data-name="difficulty">
+        <button type="button">1</button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">4</button>
+        <button type="button">5</button>
+    </div>
+</div>
+
+<div class="card">
+    <p class="label">Your Feedback:</p>
+    <textarea 
+        id="feedback"
+        placeholder="Write your feedback here..."
+        rows="5">
+    </textarea>
+</div>
+
+<button id="submitBtn">Submit</button>
+
+<script src="script.js"></script>
+</body>
+</html>
