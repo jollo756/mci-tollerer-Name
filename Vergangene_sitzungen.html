@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+  <title>Vergangene Sitzungen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .sitzungen {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sitzung-karte {
+      background: #ffffff;
+      border: 2px solid #333;
+      padding: 20px 25px;
+    }
+
+    .sitzung-titel {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .wert {
+      margin: 6px 0;
+    }
+
+    .fragen {
+      margin-top: 12px;
+    }
+
+    .fragen ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Vergangene Sitzungen</h1>
+
+  <div class="sitzungen">
+
+    <div class="sitzung-karte">
+      <div class="sitzung-titel">12.12.2025 – Programmieren 1</div>
+
+      <div class="wert">Ø Geschwindigkeit: 3,2</div>
+      <div class="wert">Ø Schwierigkeit: 2,8</div>
+
+      <div class="fragen">
+        Fragen:
+        <ul>
+          <li>Wie erstelle ich ein struct?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sitzung-karte">
+      <div class="sitzung-titel">11.12.2025 – Data Science</div>
+
+      <div class="wert">Ø Geschwindigkeit: 3,8</div>
+      <div class="wert">Ø Lautstärke: 4,1</div>
+      <div class="wert">Ø Mediennutzung: 3,4</div>
+
+      <div class="fragen">
+        Fragen:
+        <ul>
+          <li>Supervised vs. Unsupervised?</li>
+          <li>Woher kommt das Validation-Set?</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
