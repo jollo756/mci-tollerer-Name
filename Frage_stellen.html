@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <head>
     <title>Frage stellen</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
     <body>
-        <h1 id="Frage">Stelle deine Frage:</h1>
+          <div class="main-container">
+            <div class="back-btn" onclick="history.back()">
+            <a> &larr;</a>
+            </div>
+            <h1 class="title">Stelle deine Frage:</h1>
 
-        <form onsubmit="sub_question(); return false;">
-            <textarea 
-                id="textfrage" 
-                name="question" 
-                rows="5" 
-                cols="50"
-                placeholder="Write your question here..."
-                required></textarea>
-            <br><br>
-            <button type="submit" id="submit" >Submit</button>
-        </form>
-
+            <form onsubmit="sub_question(); return false;">
+                <textarea 
+                    id="textfrage" 
+                    name="question" 
+                    rows="5" 
+                    cols="50"
+                    placeholder="Frage hier eingeben..."
+                    required></textarea>
+                <br><br>
+                <button type="submit" id="submit" >Submit</button>
+            </form>
+        </div>
     </body>
     <script>
         function sub_question() {
@@ -26,7 +31,7 @@
                 window.location.href = "Student_Dashboard.html";
             }
             else {
-                alert("Please enter a question.");
+                alert("Bitte geben Sie eine Frage ein.");
             }
         }
     </script>
