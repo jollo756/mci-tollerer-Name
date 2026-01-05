@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>live Session</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <h1>Fragen:</h1>
+
+        <div class="questions2" id="questions2">
+            <div class="question2">
+                <button class="del" onclick="removeQuestion(this)">&#128465</button>
+                <span>Können verschiedene Datentypen in einem Array sein?</span>
+            </div>
+            <div class="question2">
+                <button class="del" onclick="removeQuestion(this)">&#128465</button>
+                <span>wie zufällig sind die zufalls zahlen?</span>
+            </div>
+        </div>
+
+        <div class="left-panel">
+            <div class="qr">
+                QR-Code
+            </div>
+
+            <div class="info">
+                <p><strong>Session Link:</strong></p>
+
+                <p><strong>Geschwindigkeit:</strong><br>Ø 3,8</p>
+
+                <p><strong>Schwierigkeit:</strong><br>Ø 2,9</p>
+            </div>
+        </div>
+
+        <div class="end-session">
+            <button onclick ="location.href='dozent-page.html'">Session beenden</button>
+        </div>
+    </div>
+
+    <script>
+        function removeQuestion(button) {
+            const question = button.parentElement;
+            question.remove();
+        }
+    </script>
+</body>
+</html>
