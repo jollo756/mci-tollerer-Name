@@ -5,48 +5,58 @@
     <title>live Session</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            margin: 0;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        }
+
+        .questions {
+            border-right: none;
+            margin: 40px auto 0;
+            max-width: 800px;
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <h1>Fragen:</h1>
+        <div class="left-side">
+            <div class="left-panel">
+                <div class="qr">
+                    QR-Code
+                </div>
 
-        <div class="questions2" id="questions2">
-            <div class="question2">
-                <button class="del" onclick="removeQuestion(this)">&#128465</button>
-                <span>Können verschiedene Datentypen in einem Array sein?</span>
-            </div>
-            <div class="question2">
-                <button class="del" onclick="removeQuestion(this)">&#128465</button>
-                <span>wie zufällig sind die zufalls zahlen?</span>
-            </div>
-        </div>
+                <div class="info">
+                    <p><strong>Session Link:</strong></p>
 
-        <div class="left-panel">
-            <div class="qr">
-                QR-Code
-            </div>
+                    <p><strong>Geschwindigkeit:</strong><br>Ø 3,8</p>
 
-            <div class="info">
-                <p><strong>Session Link:</strong></p>
-
-                <p><strong>Geschwindigkeit:</strong><br>Ø 3,8</p>
-
-                <p><strong>Schwierigkeit:</strong><br>Ø 2,9</p>
+                    <p><strong>Schwierigkeit:</strong><br>Ø 2,9</p>
+                </div>
             </div>
         </div>
+        <div class="right-side">
+            <h1>Fragen:</h1>
 
-        <div class="end-session">
-            <button onclick ="location.href='dozent-page.html'">Session beenden</button>
+            <div class="questions" id="questions2">
+                <div class="question">
+                    <button class="del" onclick="removeQuestion(this)">&#128465</button>
+                    <span>Können verschiedene Datentypen in einem Array sein?</span>
+                    <span class="votes">11</span>
+                </div>
+                <div class="question">
+                    <button class="del" onclick="removeQuestion(this)">&#128465</button>
+                    <span>wie zufällig sind die zufalls zahlen?</span>
+                    <span class="votes">3</span>
+                </div>
+            </div>
+            
+            <div class="end-session">
+                <button onclick ="location.href='dozent-page.html'">Session beenden</button>
+            </div>
         </div>
     </div>
 

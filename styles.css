@@ -348,11 +348,10 @@
     /*------- mainly live session-------*/
 
     .page {
-        position: relative;
-        width: 100%;
-        height: calc(100vh - 80px);
-        box-sizing: border-box;
-        padding: 20px;
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+      width: 100vw;
     }
 
     h1 {
@@ -370,17 +369,27 @@
         display: flex;
         align-items: center;
         border: 1px solid #000;
+        background-color: #f0f0f0;
         border-radius: 6px;
         padding: 10px;
         margin-bottom: 10px;
         font-size: 14px;
     }
+    .right-side {
+      flex: 5;
+      position: relative;
+    }
 
-    
+    .left-side {
+      border-right: 2px solid #000;
+      flex: 1;
+      background-color: #f0f0f0; 
+      
+    }
     .left-panel {
         position: absolute;
         top: 80px;
-        left: 20px;
+        left: 50px;
         width: 220px;
         font-size: 14px;
     }
