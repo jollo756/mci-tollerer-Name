@@ -4,36 +4,39 @@
         <title>
             Dashboard
         </title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+        .course {
+            text-align: center;
+            margin-bottom: 0px;
+            margin-top: 30px;
+        }
+        .course a {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        </style>
     </Head>
     <body>
-        <a href=""></a>
-        <h1 id="kurs">Kurs : </h1>
-        <br>
-        <a href="Frage_stellen.html">
-            <div class="tasks">
-                <h2>Frage stellen</h2>
+        <div class="main-container">
+            <h1 id="kurs">Kurs : </h1>
+            <div class="courses">
+                <div class="course" onclick="location.href='Frage_stellen.html'">
+                    <a>Frage stellen</a>
+                </div>
+                <div class="course" onclick="location.href='Andere_fragen.html'">
+                    <a>Andere Fragen</a>
+                </div>
+                <div class="course" onclick="location.href='Bewertung_abgeben.html'">
+                    <a>Bewertung abgeben</a>
+                </div>
+
+
+                <div class="course" onclick="location.href='Vergangene_Sitzungen.html'">
+                    <a>Vergangene Sitzungen</a>
+                </div>
             </div>
-        </a>
-        <br>
-        <a href="Andere_fragen.html">
-            <div class="tasks">
-                <h2>Andere Fragen</h2>
-            </div>
-        </a>
-        <br>
-        <a href="Bewertung_abgeben.html">
-            <div class="tasks">
-                <h2>Bewertung abgeben</h2>
-            </div>
-        </a>
-        <br>
-        <a href="Vergangene_sitzungen.html">
-            <div class="tasks">
-                <h2>Vergangene Sitzungen</h2>
-            </div>
-        </a>
-        <br>
+        </div>
 
 
     </body>

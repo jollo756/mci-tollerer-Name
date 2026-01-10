@@ -62,8 +62,9 @@
 
       courses.forEach((course, index) => {
         const div = document.createElement("div");
+        div.onclick = () => location.href='course_overview.html';
         div.className = "course";                  // href="course_feedback.html?course=${index}"> falls wir nicht alle gleich haben wollen glaube aber passt so
-        div.innerHTML = `<a href="course_overview.html"> 
+        div.innerHTML = `<a> 
           ${course.name} 
         </a>`;
         list.appendChild(div);
