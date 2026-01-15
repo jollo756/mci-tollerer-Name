@@ -1,58 +1,15 @@
 <!DOCTYPE html>
 <head>
     <title>Bewertung abgeben</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body{
-            background: #b83c3cbe;
-        }
-        .back-btn {
-            margin-bottom: 16px;
-            font-size: 22px;
-            display: inline-block;
-            padding: 4px 15px;
-            font-weight: bold;
-            border: 1px solid #ddd;
-            background: #fafafa;
+        .main-container {
+            all:unset;
+            margin-top: 90px;
+            background: none;
+            align-items: right;
         }
 
-        .back-btn:hover {
-            background: #f0f6ff;
-            cursor: pointer;
-        }
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 15px 25px;
-            background-color: #f5f5f5;
-            border-bottom: 2px solid #333;
-        }
-
-        .nav-btn {
-            all: unset;
-            font-weight: bold;
-            color: #333;
-            padding: 8px 14px;
-            border: 2px solid #333;
-            background: white;
-            cursor: pointer;
-        }
-
-        .nav-btn:hover {
-            background: #eee;
-        }
-
-        .logout {
-            color: #b00020;
-            border-color: #b00020;
-        }
     </style>
 </head>
 <header class="top-bar">
@@ -87,7 +44,7 @@
         </div>
 
         <div class="card">
-            <p class="label">Your Feedback:</p>
+            <p class="label">Allgemeines Feedback:</p>
             <textarea 
                 id="feedback"
                 placeholder="Write your feedback here...(optional)"
