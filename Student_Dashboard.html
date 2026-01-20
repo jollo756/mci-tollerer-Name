@@ -25,6 +25,9 @@
         <div class="main-container">
             <h1 id="kurs">Kurs : </h1>
             <div class="courses">
+                <div class="timeout" onclick="openModal()">
+                    <a>Vote for Timeout  (52/53)</a>
+                </div>
                 <div class="course" onclick="location.href='Frage_stellen.html'">
                     <a>Frage stellen</a>
                 </div>
@@ -42,6 +45,90 @@
             </div>
         </div>
 
+        <!-- Popup -->
+        <div class="modal" id="courseModal">
+            <div class="modal-content">
+                <h3>Für Tactical Timeout voten?</h3>
+                <h4>Momentan 52 von 53 Benötigten Votes</h4>
+                <h4>Verbleibende Timeouts: 2/2</h4>
+            <div class="modal-actions">
+                <button class="cncl-btn" onclick="closeModal()">X</button>
+                <button class="confirm-btn" onclick="timeout()">&#10003;</button>
+            </div>
+            </div>
+        </div>
 
     </body>
+    <script>
+        function timeout() {
+            showTimeoutShaq();
+            var popup=document.getElementById("courseModal");
+            popup.innerHTML = "";
+            const div=document.createElement("div");
+            div.className="modal-content";
+            div.innerHTML="<h3>Timeout Aktiv:</h3>";
+            
+            const timer=document.createElement("div");
+            timer.className="timer-container";
+            timer.innerHTML = `
+                <svg class="timer-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="timer-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="timer-progress" cx="60" cy="60" r="50"></circle>
+                    <text class="timer-text" x="60" y="60" id="timerText">60</text>
+                </svg>
+            `;
+            div.appendChild(timer);
+            popup.appendChild(div);
+            startCountdown(60);
+
+        }
+        function showTimeoutShaq() { //quelle: https://imageresizer.com/de/meme-generator/bearbeiten/shaq-timeout
+            const overlay = document.createElement("div");
+            overlay.className = "timeout-overlay";
+
+            const img = document.createElement("img");
+            img.src = "timeout.png";
+
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            setTimeout(() => {
+                overlay.remove();
+            }, 1000);
+        }
+
+        function startCountdown(seconds){
+            const circle = document.querySelector(".timer-progress");
+            const text = document.getElementById("timerText");
+            const radius = 50;
+            const circumference = 2 * Math.PI * radius;
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = 0;
+           
+            let remaining = seconds;
+
+            const interval = setInterval(() => {
+                remaining--;
+                text.textContent = remaining;
+
+                const offset = -circumference * (1 - remaining / seconds);
+                circle.style.strokeDashoffset = offset;
+
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                    text.textContent = "0";
+                    closeModal();
+                    window.location.reload();
+                }
+            }, 1000);
+        }
+
+        function openModal() {
+        document.getElementById("courseModal").style.display = "flex";
+        }
+
+        function closeModal() {
+        document.getElementById("courseModal").style.display = "none";
+        }
+    </script>
 </html>

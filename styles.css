@@ -110,6 +110,7 @@
       gap: 12px;
       margin-bottom: 32px;
     }
+    
 
     .course {
       padding: 16px;
@@ -532,4 +533,94 @@ textarea {
 .logout {
   color: #b00020;
   border-color: #b00020;
+}
+
+/* mainly student dashboard */
+  .timeout {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .timeout:hover {
+    background: #f0f6ff;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  .timeout a {
+    text-decoration: none;
+    color: #991111;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .confirm-btn {
+      background: #32ce39;
+      color: white;
+    }
+
+    .cncl-btn {
+      background: #e20f0f;
+    }
+
+    .timer-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.timer-svg {
+    width: 160px;
+    height: 160px;
+}
+
+.timer-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 12;
+}
+
+.timer-progress {
+    fill: none;
+    stroke: #919799;
+    stroke-width: 12;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+    font-size: 28px;
+    font-weight: bold;
+    fill: #333;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.timeout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: overlayFade 0.5s ease-in-out forwards;
+}
+
+.timeout-overlay img {
+    width: 60vw;
+    height: 100vh;
+    object-fit: cover; /* füllt den Screen ohne Verzerrung */
+    animation: imageFade 0.5s ease-in-out forwards;
+}
+
+@keyframes overlayFade {
+    0%   { opacity: 0; }
+    50%  { opacity: 0.2; }
+    100% { opacity: 0; }
 }
