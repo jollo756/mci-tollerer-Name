@@ -646,3 +646,44 @@ textarea {
     50%  { opacity: 0.2; }
     100% { opacity: 0; }
 }
+
+.modal-container{
+    display: flex;
+    align-items: center;
+
+}
+
+
+.X-icon a {
+    width: 40px;
+    height: 40px;
+    margin-left: 100px;
+
+    display: flex;
+    align-items: center;      
+    justify-content: center;  
+
+    background: none;
+    border: 3px solid #e20f0f;
+    border-radius: 50%;
+
+    font-size: 32px;
+    color: #e20f0f;
+}
+.check-icon a {
+    width: 40px;
+    height: 40px;
+    margin-left: 100px;
+
+    display: flex;
+    align-items: center;      
+    justify-content: center;  
+
+    background: none;
+    border: 3px solid #32ce39;
+    border-radius: 50%;
+
+    font-size: 32px;
+    color: #32ce39;
+}
+

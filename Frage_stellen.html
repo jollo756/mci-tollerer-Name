@@ -36,39 +36,64 @@
                 </div>
             </form>
         </div>
+        <!-- Popup -->
+        <div class="modal" id="courseModal">
+            <div class="modal-content" >
+                <div class="modal-container" id="modal-inner">
+                    <h3>Frage eingereicht!</h3>
+                    <div class ="check-icon"> <a>&#10003;</a></div>
+            </div>
+        </div>
     </body>
     <script>
-        function openModal() {}
-        function closeModal() {}
+        var stop = false;
+        const pop= document.getElementById("modal-inner");
+        function openModal(done) {
+            document.getElementById("courseModal").style.display = "flex";
+            setTimeout(() => {
+                if(done){
+                    location.href = "Student_Dashboard.html";
+                } else {
+                    closeModal();
+                }
+            }, 800);
+        }
+        function closeModal() {
+            document.getElementById("courseModal").style.display = "none";
+        }
         function cancel() {
-            alert("Abgebrochen");
-            window.location.reload();
+            stop = true;
+            const lower = document.getElementById("down");
+            lower.innerHTML = '<button type="submit" id="submit" >Submit</button>';
+            pop.innerHTML = `<h3>Frage senden abgebrochen.</h3>
+            <div class ="X-icon"> <a>&#10005;</a></div>`;
+            openModal(false);
         }
         function sub_question() {
-            var frage = document.getElementById("textfrage").value;
-            if (frage!=0) {
-                const lower = document.getElementById("down");
-                lower.innerHTML = '<button class="cancel-btn" id="cancel-btn" onclick="cancel()">cancel 3s</button>';
-                setTimeout(() => {
-                    const btn = document.getElementById("cancel-btn");
-                    btn.innerText = "cancel 2s";
-                    setTimeout(() => {
-                        btn.innerText = "cancel 1s";
-                        setTimeout(() => {
-                            window.location.href = "Student_Dashboard.html";
-                        }, 1000);
-                    }, 1000);
+            stop = false;
+            const lower = document.getElementById("down");
+            lower.innerHTML = '<button class="cancel-btn" id="cancel-btn" onclick="cancel()">cancel 3s</button>';
+            const btn = document.getElementById("cancel-btn");
+            count=25;
+            btn.innerHTML = "cancel " + Math.ceil(count/10) + "s";
+            const interval = setInterval(() => {
+                count--;
+                if(stop){
+                    clearInterval(interval); 
                     
+                }
+                if (count > 1 ) {
                     
-                }, 1000);
-                
-         
-                
-                
-            }
-            else {
-                alert("Bitte geben Sie eine Frage ein.");
-            }
+                    btn.innerHTML = "cancel " + Math.ceil(count/10) + "s";
+                } if (count < 0) {
+                    clearInterval(interval);
+                    pop.innerHTML = `<h3>Frage eingereicht!</h3>
+                    <div class ="check-icon"> <a>&#10003;</a></div>`;
+                    openModal(true);
+                }
+            }, 100); 
+            
         }
+
     </script>
 </html>

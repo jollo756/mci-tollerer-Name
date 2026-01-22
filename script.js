@@ -33,6 +33,17 @@ document.getElementById("submitBtn").addEventListener("click", () => {
         "Schwierigkeit: " + values.difficulty + "\n" +
         "Feedback: " + feedback
     );*/
-    window.location.href = "Student_Dashboard.html";
+    openModal();
 });
+
+function openModal() {
+    document.getElementById("courseModal").style.display = "flex";
+    setTimeout(() => {
+            window.location.href = "Student_Dashboard.html";
+    }, 800);
+}
+
+function closeModal() {
+    document.getElementById("courseModal").style.display = "none";
+}
 
