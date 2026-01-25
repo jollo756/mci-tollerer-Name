@@ -16,12 +16,13 @@
      
     </style>
 </head>
-<header class="top-bar">
-  <a href="dozent-page.html" class="nav-btn"> Home</a>
-   <div class="path-display underline">Home / Session </div>
-  <a href="login.html" class="nav-btn logout">Logout</a>
-</header>
-<body>
+
+<body onload="initialize()">
+    <header class="top-bar">
+        <a href="dozent-page.html" class="nav-btn"> Home</a>
+        <div class="path-display underline">Home / Session </div>
+        <a href="login.html" class="nav-btn logout">Logout</a>
+    </header>
     <div class="page">
         <div class="left-side">
             <div class="left-panel">
@@ -35,6 +36,8 @@
                     <p><strong>Geschwindigkeit:</strong><br>Ø 3,8</p>
 
                     <p><strong>Schwierigkeit:</strong><br>Ø 2,9</p>
+
+                    <p><strong>Votes für Timeout:</strong><br><a id="votes">22</a>/<a id="maxVotes">53</a></p>
                 </div>
             </div>
         </div>
@@ -59,12 +62,117 @@
             </div>
         </div>
     </div>
+    <!-- Popup -->
+        <div class="modal" id="courseModal">
+            <div class="modal-content">
+                <h3>Timeout Aktiv:</h3>
+                <div class="timer-container">
+                    <svg class="timer-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="timer-bg" cx="60" cy="60" r="50"></circle>
+                        <circle class="timer-progress" cx="60" cy="60" r="50"></circle>
+                        <text class="timer-text" x="60" y="60" id="timerText">60</text>
+                    </svg>
+            </div>
+            </div>
+        </div>
 
+
+
+
+</body>
     <script>
+        var votes=0;
+        var maxVotes=53;
+
+        function initialize(){
+            votes = Math.floor(maxVotes*Math.random()); 
+            start();
+        }
         function removeQuestion(button) {
             const question = button.parentElement;
             question.remove();
         }
+        function set_votes() {
+            document.getElementById("votes").innerText=votes;
+            
+            document.getElementById("maxVotes").innerText=maxVotes;
+        }
+        function start() { //simuliert voting 
+            
+            set_votes();
+            const interval = setInterval(() => {
+                const rand =Math.random();
+                if (rand> 0.96){// 4% maxVotes verändert sich (anzahl teilnehmer)
+                    if (rand > 0.98) {
+                       maxVotes--;
+                    } else{
+                        maxVotes++;
+                    }
+                    set_votes();
+                }
+                if (rand < 0.3) { // 30% chance every second to get a new vote every 300ms
+                    votes++;
+                    set_votes();
+                }
+                if (votes >= maxVotes) {
+                    clearInterval(interval);
+                    timeout();
+                }
+            }, 300);
+        }
+        function timeout() {
+            showTimeoutShaq();
+            openModal();
+            startCountdown(60);
+        }
+        function showTimeoutShaq() { //quelle: https://imageresizer.com/de/meme-generator/bearbeiten/shaq-timeout
+            const overlay = document.createElement("div");
+            overlay.className = "timeout-overlay";
+
+            const img = document.createElement("img");
+            img.src = "timeout.png";
+
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            setTimeout(() => {
+                overlay.remove();
+            }, 1000);
+        }
+        function startCountdown(seconds){
+            const circle = document.querySelector(".timer-progress");
+            const text = document.getElementById("timerText");
+            const radius = 50;
+            const circumference = 2 * Math.PI * radius;
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = 0;
+           
+            let remaining = seconds;
+
+            const interval = setInterval(() => {
+                remaining--;
+                text.textContent = remaining;
+
+                const offset = -circumference * (1 - remaining / seconds);
+                circle.style.strokeDashoffset = offset;
+
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                    text.textContent = "0";
+                    votes=0;
+                    start();
+                    closeModal();
+                    text.textContent = "60";
+                    
+                }
+            }, 1000);
+        }
+        function openModal() {
+        document.getElementById("courseModal").style.display = "flex";
+        }
+
+        function closeModal() {
+        document.getElementById("courseModal").style.display = "none";
+        }
     </script>
-</body>
 </html>
